@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Include Bootstrap CSS here -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	
+	<style>
+	body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 20px;
+		}
+
+		.blue-strip-heading {
+			background-color: #3498db;
+
+			color: #fff;
+
+			padding: 10px 20px;
+
+			margin-bottom: 20px;
+
+		}
+
+
+		button {
+			padding: 8px 12px;
+			background-color: #3498db;
+
+			color: #fff;
+
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 20px;
+		}
+
+
+		button.small {
+			padding: 6px 10px;
+			font-size: 12px;
+			background-color: #000000;
+
+			color: #fff;
+
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		body {
+			background-color: #f0f0f0;
+
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #f0f0f0;
+
+			height: 100vh;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+
+		.text-center {
+			text-align: center;
+
+			padding: 5px;
+
+			background-color: #dddddd;
+
+			margin: auto;
+
+			width: fit-content;
+
+		}
+
+		.custom-box {
+			width: 300px;
+			
+			height: 200px;
+			
+			border: 2px solid #333;
+			
+			background-color: #f0f0f0;
+		
+			padding: 20px;
+		
+			margin: 50px auto;
+			
+			box-sizing: border-box;
+			
+		}
+
+		.body-container {
+			width: 80%;
+
+			margin: 0 auto;
+
+			border: 1px solid #ccc;
+
+			padding: 20px;
+
+			box-sizing: border-box;
+
+		}
+
+		.text-center {
+			text-align: center;
+
+			margin-top: 10px;
+
+		}
+
+
+		.content {
+			text-align: center;
+			padding: 50px;
+
+			background-color: #ffffff;
+
+			border-radius: 8px;
+
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container mt-3">
+		<h2>Edit Ticket</h2>
+
+		<!-- Form for editing a ticket -->
+		<form th:action="@{'/update/{id}' (id=${ticket.id})}" th:object="${ticket}" method="post">
+			<input type="hidden" th:field="*{id}" />
+			<!--        "@{/employees/{id} (id=${employee.id})}"-->
+			<div class="form-group">
+				<label for="title">Title:</label>
+				<input type="text" class="form-control" id="title" th:field="*{title}" required />
+			</div>
+
+			<div class="form-group">
+				<label for="shortDescription">Short Description:</label>
+				<textarea class="form-control" id="shortDescription" th:field="*{shortDescription}" required></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="date">Date:</label>
+				<input type="date" class="form-control" id="date" th:field="*{createdDate}" required />
+			</div>
+
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Save Changes</button>
+				<a th:href="@{/homeservice}" class="btn btn-secondary">Cancel</a>
+			</div>
+		
+		</form>
+	
+
+</body>
+
+</html>
